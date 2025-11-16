@@ -166,7 +166,7 @@ export const translations = {
     legalEditorSource: "Code source disponible sur :",
     legalHosting: "2. Hébergement",
     legalHostingContent:
-      "Cette application est une Progressive Web App (PWA) hébergée sur",
+      "Cette application est une Progressive Web App (PWA) hébergée sur Netlify (https://www.netlify.com).",
     legalIP: "3. Propriété intellectuelle",
     legalIPLicense:
       "L'application Secret Santa Go est distribuée sous licence MIT.",
@@ -223,17 +223,17 @@ export const translations = {
     privacyLocalStorageLang: "Votre choix de langue (FR/EN)",
     privacyLocalStoragePrivate:
       "Ces données restent sur votre appareil et ne sont accessibles que par vous. Elles ne sont jamais synchronisées ni partagées.",
-    privacyEncryption: "4. Encryption des codes",
+    privacyEncryption: "4. Encodage des codes",
     privacyEncryptionText:
-      "Les codes Secret Santa générés contiennent des informations encryptées (nom du donneur, nom du receveur, budget, etc.) en utilisant :",
+      "Les codes Secret Santa générés contiennent des informations encodées (nom du donneur, nom du receveur, budget, etc.) en utilisant un encodage Base64 URL-safe. Important : il s'agit d'un encodage, pas d'un chiffrement cryptographique.",
     privacyEncryptionAES:
-      "AES-GCM 256 bits : Algorithme de chiffrement standard industriel",
+      "Base64 URL-safe : Encodage standard permettant de transmettre des données dans des URLs",
     privacyEncryptionAPI:
-      "Web Crypto API : API de chiffrement native du navigateur",
+      "TextEncoder/TextDecoder : APIs natives du navigateur pour gérer l'UTF-8",
     privacyEncryptionPBKDF:
-      "PBKDF2 : Dérivation de clé avec 100 000 itérations",
+      "Pas de clé secrète : Les codes peuvent être décodés par quiconque les possède",
     privacyEncryptionGuarantee:
-      "Cette encryption garantit que les codes ne peuvent pas être lus sans décryptage avec la clé appropriée.",
+      "Cet encodage permet de masquer le contenu des codes dans les URLs et de gérer correctement les caractères spéciaux (accents, emojis). Toutefois, il ne constitue pas une protection cryptographique forte. Ne partagez vos codes qu'avec les participants concernés.",
     privacyTracking: "5. Cookies et tracking",
     privacyTrackingNone: "Secret Santa Go n'utilise AUCUN :",
     privacyTrackingCookie: "Cookie de tracking",
@@ -276,7 +276,7 @@ export const translations = {
       "Vous pouvez également utiliser le mode navigation privée pour ne laisser aucune trace.",
     privacyOpenSource: "9. Open Source",
     privacyOpenSourceText:
-      "Secret Santa Go est un projet open source. Le code source complet est disponible sur GitHub et peut être audité par quiconque souhaite vérifier nos pratiques en matière de confidentialité.",
+      "Secret Santa Go est un projet open source. Le code source complet est disponible sur GitHub (https://github.com/bfigliuzzi/secretsanta-ai) et peut être audité par quiconque souhaite vérifier nos pratiques en matière de confidentialité.",
     privacyOpenSourceAudit:
       "Vous pouvez consulter le code, vérifier qu'aucune donnée n'est transmise, et même héberger votre propre instance de l'application.",
     privacyContact: "10. Contact",
@@ -293,7 +293,7 @@ export const translations = {
       "Secret Santa Go est une application web gratuite permettant d'organiser des échanges de cadeaux de type \"Secret Santa\". L'application :",
     termsDescriptionGenerate:
       "Génère des paires de participants de manière aléatoire",
-    termsDescriptionCodes: "Crée des codes encryptés pour chaque participant",
+    termsDescriptionCodes: "Crée des codes encodés pour chaque participant",
     termsDescriptionReveal: "Permet la révélation sécurisée des assignations",
     termsDescriptionClient:
       "Fonctionne entièrement côté client (aucun serveur)",
@@ -516,7 +516,7 @@ export const translations = {
     legalEditorSource: "Source code available on:",
     legalHosting: "2. Hosting",
     legalHostingContent:
-      "This application is a Progressive Web App (PWA) hosted on",
+      "This application is a Progressive Web App (PWA) hosted on Netlify (https://www.netlify.com).",
     legalIP: "3. Intellectual Property",
     legalIPLicense:
       "The Secret Santa Go application is distributed under the MIT license.",
@@ -571,15 +571,17 @@ export const translations = {
     privacyLocalStorageLang: "Your language choice (FR/EN)",
     privacyLocalStoragePrivate:
       "This data remains on your device and is only accessible by you. It is never synchronized or shared.",
-    privacyEncryption: "4. Code Encryption",
+    privacyEncryption: "4. Code Encoding",
     privacyEncryptionText:
-      "Generated Secret Santa codes contain encrypted information (giver name, receiver name, budget, etc.) using:",
+      "Generated Secret Santa codes contain encoded information (giver name, receiver name, budget, etc.) using URL-safe Base64 encoding. Important: this is encoding, not cryptographic encryption.",
     privacyEncryptionAES:
-      "AES-GCM 256-bit: Industry-standard encryption algorithm",
-    privacyEncryptionAPI: "Web Crypto API: Native browser encryption API",
-    privacyEncryptionPBKDF: "PBKDF2: Key derivation with 100,000 iterations",
+      "URL-safe Base64: Standard encoding for transmitting data in URLs",
+    privacyEncryptionAPI:
+      "TextEncoder/TextDecoder: Native browser APIs for UTF-8 handling",
+    privacyEncryptionPBKDF:
+      "No secret key: Codes can be decoded by anyone who possesses them",
     privacyEncryptionGuarantee:
-      "This encryption ensures that codes cannot be read without decryption with the appropriate key.",
+      "This encoding allows masking code content in URLs and properly handling special characters (accents, emojis). However, it does not provide strong cryptographic protection. Only share your codes with intended participants.",
     privacyTracking: "5. Cookies and Tracking",
     privacyTrackingNone: "Secret Santa Go uses NO:",
     privacyTrackingCookie: "Tracking cookies",
@@ -620,7 +622,7 @@ export const translations = {
       "You can also use private browsing mode to leave no trace.",
     privacyOpenSource: "9. Open Source",
     privacyOpenSourceText:
-      "Secret Santa Go is an open source project. The complete source code is available on GitHub and can be audited by anyone wishing to verify our privacy practices.",
+      "Secret Santa Go is an open source project. The complete source code is available on GitHub (https://github.com/bfigliuzzi/secretsanta-ai) and can be audited by anyone wishing to verify our privacy practices.",
     privacyOpenSourceAudit:
       "You can review the code, verify that no data is transmitted, and even host your own instance of the application.",
     privacyContact: "10. Contact",
@@ -636,7 +638,7 @@ export const translations = {
     termsDescriptionText:
       'Secret Santa Go is a free web application for organizing "Secret Santa" gift exchanges. The application:',
     termsDescriptionGenerate: "Generates participant pairs randomly",
-    termsDescriptionCodes: "Creates encrypted codes for each participant",
+    termsDescriptionCodes: "Creates encoded codes for each participant",
     termsDescriptionReveal: "Allows secure revelation of assignments",
     termsDescriptionClient: "Works entirely client-side (no server)",
     termsUsage: "3. Application Usage",

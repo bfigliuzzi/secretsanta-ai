@@ -24,7 +24,7 @@ export default function LegalPage(_props: { path?: string }) {
           <p class="text-gray-700 mb-2">
             {t("legalEditorSource")}{" "}
             <a
-              href="https://github.com/VOTRE-USERNAME/secretsanta-ai"
+              href="https://github.com/bfigliuzzi/secretsanta-ai"
               class="text-blue-600 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
