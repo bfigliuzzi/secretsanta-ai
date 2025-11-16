@@ -5,6 +5,7 @@
 import { useState } from "preact/hooks";
 import type { Session } from "../types.ts";
 import { t } from "../utils/i18n.ts";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
 
 interface ResultsProps {
   session: Session;
@@ -12,6 +13,8 @@ interface ResultsProps {
 }
 
 export default function Results({ session, onNewDraw }: ResultsProps) {
+  // Subscribe to language changes to force re-render
+  useLanguage();
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const copyToClipboard = async (text: string, index: number) => {

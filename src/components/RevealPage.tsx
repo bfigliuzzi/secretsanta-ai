@@ -6,12 +6,15 @@ import { useState, useEffect } from "preact/hooks";
 import type { EncryptedData } from "../types.ts";
 import { decodeData } from "../utils/crypto.ts";
 import { t } from "../utils/i18n.ts";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
 
 interface RevealPageProps {
   path?: string;
 }
 
 export default function RevealPage(_props: RevealPageProps) {
+  // Subscribe to language changes to force re-render (updates placeholders)
+  useLanguage();
   const [code, setCode] = useState("");
   const [revealed, setRevealed] = useState<EncryptedData | null>(null);
   const [error, setError] = useState("");

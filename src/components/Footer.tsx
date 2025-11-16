@@ -1,11 +1,15 @@
 /**
- * Composant Footer avec liens légaux
+ * Footer component with legal links
  */
 
 import { route } from "preact-router";
 import { t } from "../utils/i18n.ts";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
 
 export default function Footer() {
+  // Subscribe to language changes to force re-render
+  useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

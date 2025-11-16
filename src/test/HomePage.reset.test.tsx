@@ -3,12 +3,13 @@
  */
 
 import { describe, it, expect } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/preact";
+import { screen, fireEvent } from "@testing-library/preact";
+import { renderWithLanguageProvider } from "./testUtils.tsx";
 import HomePage from "../components/HomePage.tsx";
 
 describe("HomePage Reset Button", () => {
   it("should not show reset button when form is empty", () => {
-    render(<HomePage />);
+    renderWithLanguageProvider(<HomePage />);
 
     // Reset button should not be visible
     const resetButtons = screen.queryAllByRole("button");
@@ -21,7 +22,7 @@ describe("HomePage Reset Button", () => {
   });
 
   it("should show reset button when participants field is filled", () => {
-    render(<HomePage />);
+    renderWithLanguageProvider(<HomePage />);
 
     // Fill participants field
     const textarea = screen.getByRole("textbox", { name: /participants/i });
@@ -38,7 +39,7 @@ describe("HomePage Reset Button", () => {
   });
 
   it("should show reset button when budget field is filled", () => {
-    render(<HomePage />);
+    renderWithLanguageProvider(<HomePage />);
 
     // Fill budget field
     const budgetInput = screen.getByRole("textbox", { name: /budget/i });
@@ -55,7 +56,7 @@ describe("HomePage Reset Button", () => {
   });
 
   it("should reset all form fields when reset button is clicked", () => {
-    render(<HomePage />);
+    renderWithLanguageProvider(<HomePage />);
 
     // Fill multiple fields
     const textarea = screen.getByRole("textbox", { name: /participants/i });
@@ -86,7 +87,7 @@ describe("HomePage Reset Button", () => {
   });
 
   it("should use native HTML reset type and form attribute", () => {
-    render(<HomePage />);
+    renderWithLanguageProvider(<HomePage />);
 
     // Fill form to show the button
     const textarea = screen.getByRole("textbox", { name: /participants/i });

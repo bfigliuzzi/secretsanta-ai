@@ -3,12 +3,16 @@
  */
 
 import { t } from "../utils/i18n.ts";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
 
 interface FAQPageProps {
   path?: string;
 }
 
 export default function FAQPage(_props: FAQPageProps) {
+  // Subscribe to language changes to force re-render
+  useLanguage();
+
   return (
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-8">

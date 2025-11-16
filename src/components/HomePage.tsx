@@ -17,6 +17,7 @@ import {
   getLastParticipants,
 } from "../utils/storage.ts";
 import { t } from "../utils/i18n.ts";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
 import Results from "./Results.tsx";
 
 interface HomePageProps {
@@ -24,6 +25,8 @@ interface HomePageProps {
 }
 
 export default function HomePage(_props: HomePageProps) {
+  // Subscribe to language changes to force re-render (updates placeholders)
+  useLanguage();
   const [participantsText, setParticipantsText] = useState("");
   const [budget, setBudget] = useState("");
   const [theme, setTheme] = useState("");

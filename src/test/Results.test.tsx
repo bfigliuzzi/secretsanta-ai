@@ -3,7 +3,8 @@
  */
 
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/preact";
+import { screen, fireEvent } from "@testing-library/preact";
+import { renderWithLanguageProvider } from "./testUtils.tsx";
 import Results from "../components/Results.tsx";
 import type { Session } from "../types.ts";
 
@@ -56,7 +57,9 @@ const mockSession: Session = {
 describe("Results Component", () => {
   it("should render session results with all pairs", () => {
     const onNewDraw = vi.fn();
-    render(<Results session={mockSession} onNewDraw={onNewDraw} />);
+    renderWithLanguageProvider(
+      <Results session={mockSession} onNewDraw={onNewDraw} />
+    );
 
     // Check that all participants are displayed
     expect(screen.getByText(/Alice/)).toBeDefined();
@@ -66,7 +69,9 @@ describe("Results Component", () => {
 
   it("should display codes for all participants", () => {
     const onNewDraw = vi.fn();
-    render(<Results session={mockSession} onNewDraw={onNewDraw} />);
+    renderWithLanguageProvider(
+      <Results session={mockSession} onNewDraw={onNewDraw} />
+    );
 
     // All codes must be visible
     const codeInputs = screen.getAllByLabelText(/Code for/i);
@@ -80,7 +85,9 @@ describe("Results Component", () => {
 
   it("should call onNewDraw when new draw button is clicked", () => {
     const onNewDraw = vi.fn();
-    render(<Results session={mockSession} onNewDraw={onNewDraw} />);
+    renderWithLanguageProvider(
+      <Results session={mockSession} onNewDraw={onNewDraw} />
+    );
 
     const newDrawButton = screen.getByRole("button", {
       name: /Nouveau tirage|New draw/i,
@@ -92,7 +99,9 @@ describe("Results Component", () => {
 
   it("should copy code to clipboard when copy button is clicked", async () => {
     const onNewDraw = vi.fn();
-    render(<Results session={mockSession} onNewDraw={onNewDraw} />);
+    renderWithLanguageProvider(
+      <Results session={mockSession} onNewDraw={onNewDraw} />
+    );
 
     // Find the first "Copy code" button
     const copyButtons = screen.getAllByRole("button", {
@@ -108,7 +117,9 @@ describe("Results Component", () => {
 
   it("should display all three action buttons", () => {
     const onNewDraw = vi.fn();
-    render(<Results session={mockSession} onNewDraw={onNewDraw} />);
+    renderWithLanguageProvider(
+      <Results session={mockSession} onNewDraw={onNewDraw} />
+    );
 
     // Check the 2 main buttons (download and new draw)
     expect(
